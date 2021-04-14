@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 
 import rospy
+import pickle as pkl
 from sensor_msgs.msg import LaserScan
 
-f = open("data.txt", "wt")
+
+d = []
+f = open("data.pickle", "wb")
 def callback(data):
-	f.write(str(list(enumerate(data.ranges))))
+	#f.write(str(list(enumerate(data.ranges))))
+	d.append(data.ranges)
 	
 	
 def listener():
@@ -15,4 +19,5 @@ def listener():
 
 if __name__ == '__main__':
 	listener()
+	pkl.dump(d, f)
 	f.close()
