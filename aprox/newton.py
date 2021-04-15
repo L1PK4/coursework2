@@ -37,9 +37,9 @@ def main():
     x = np.arange(0, np.pi * 2, 0.01)
     f1 = make_f(xi, ydd)
     y = list(map(f1, x))
-    with open('data.pickle', 'wb') as f:
-        print(x, y)
-        pickle.dump((x, y), f)
+    x = list(map(np.rad2deg, x))
+    with open('/home/renat/Programs/coursework2/data/data.pickle', 'wb') as f:
+        pickle.dump([[x, y]]* 1000, f)
 
 
 if __name__ == '__main__':
