@@ -1,6 +1,9 @@
 import pygame
 import pickle
-from aprox.newton import approximate
+
+# from aprox.newton import approximate
+from scipy.interpolate import interp1d as approximate
+
 import numpy as np
 import argparse
 
@@ -19,8 +22,8 @@ def translate(theta, ro):
 
 def rawtoapprox(arr):
 	f = approximate(arr[0], arr[1])
-	x = list(range(360))
-	a = [x, [f(i) for i in x] ]
+	x = np.linspace(0, 360, num=100)
+	a = [x, f(x)]
 	return a
 	
 
