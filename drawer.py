@@ -5,7 +5,7 @@ import numpy as np
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-P", '--path', type=str)
+parser.add_argument("-P", '--path', type=str, default='data/data.pickle')
 parser.add_argument('-A', '--approximate', action="store_true")
 args = parser.parse_args()
 SCALE = 40
@@ -35,8 +35,8 @@ def main():
 		pygame.draw.line(ui, (0, 0, 0), (0, heigth / 2), (width , heigth / 2))
 		pygame.draw.line(ui, (0, 0, 0), (heigth/ 2, width), (heigth / 2, 0))
 		if args.approximate:
-			data = rawtoapprox(arr)
-			arr.pop(0)
+			data = rawtoapprox(arr.pop(0))
+			#arr.pop(0)
 		else:
 			data = arr.pop(0)
 
