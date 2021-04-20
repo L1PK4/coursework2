@@ -4,3 +4,6 @@ temp.txt
 test2.py
 test3.py
 drawer.py
+data/__pycache__/data.cpython-38.pyc
+aprox/__pycache__/remove_spaces.cpython-38.pyc
+.vscode/settings.json
