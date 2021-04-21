@@ -52,8 +52,8 @@ class Data:
 		return Data(self.x[start : stop], self.y[start : stop])
 
 	def interpolate(self):
-		self.x = self.x[::10]
-		self.y = self.y[::10]
+		self.x = self.x[::40]
+		self.y = self.y[::40]
 		
 		try:
 			f = interp1d(self.x, self.y)
