@@ -52,6 +52,9 @@ class Data:
 		return Data(self.x[start : stop], self.y[start : stop])
 
 	def interpolate(self):
+		self.x = self.x[::10]
+		self.y = self.y[::10]
+		
 		try:
 			f = interp1d(self.x, self.y)
 		except Exception as e:
@@ -68,7 +71,7 @@ class Data:
 			x3, y3 = self.get_coord(i + 1)
 			_delta = find_delta(y1, y2, y3)
 			_eps = np.fabs(x3 - x2)
-			if _delta > delta or _eps < eps:
+			if _delta > delta or _eps > eps:
 				ans.append(Data([x2, x3], [y2, y3]))
 				# print('appended')
 			else:
@@ -80,7 +83,7 @@ class Data:
 
 class DataArray:
 	arr = []
-	def __init__(self, array, eps=1e-4, delta=np.pi / 10):
+	def __init__(self, array, eps=np.pi / 6, delta=1e-1):
 		if type(array) != Data:
 			self.arr = array
 		else:

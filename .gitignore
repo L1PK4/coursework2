@@ -1,8 +1,6 @@
-test.py
+test*.py
 aprox/__pycache__/newton.cpython-38.pyc
 temp.txt
-test2.py
-test3.py
 drawer.py
 data/__pycache__/data.cpython-38.pyc
 aprox/__pycache__/remove_spaces.cpython-38.pyc
